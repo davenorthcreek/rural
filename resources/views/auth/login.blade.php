@@ -30,7 +30,7 @@
                     domain="{{ config('auth.defaults.domain','') }}"></login-form>
 
         <a href="{{ url('/password/reset') }}">{{ trans('adminlte_lang::message.forgotpassword') }}</a><br>
-
+        <a href="{{ url('/about') }}">Back to the Home Page</a><br>
     </div>
 
     </div>
