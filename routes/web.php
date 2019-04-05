@@ -19,6 +19,11 @@ Route::get('/survey', function () {
     return view('survey');
 });
 
+Route::post('/result', 'SurveyController@result');
+Route::get('/about', function() {
+    return view('about');
+});
+
 
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {

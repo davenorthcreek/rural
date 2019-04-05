@@ -10,6 +10,8 @@
         </div>
         <form id="survey" method="POST" action='{{url("result")}}'>
             {{csrf_field()}}
+            <input type="hidden" id="lat" name="lat">
+            <input type="hidden" id="long" name="long">
             <div class="form-group">
                 <label for="name" class="col-sm-2 control-label">Your Name</label>
                 <div class="col-sm-10">
@@ -40,6 +42,7 @@
             </div>
 
             <label for="satisfaction" class="col-sm-2 control-label">How Satisfied Are You with Your ISP?</label>
+            <input type="hidden" id='satisfaction' name="satisfaction">
             <div class="col-sm-10">
 
                 <section class='rating-widget'>
@@ -65,6 +68,7 @@
                       </li>
                     </ul>
                   </div>
+              </section>
 
             </div>
             <div class="form-group">
@@ -93,11 +97,15 @@
     mymap.on('click', function(e){
         var marker = new L.marker(e.latlng, {draggable:true});
         mymap.addLayer(marker);
-        $("#ll").text(parseFloat(e.latlng.lat).toFixed(4)+', '+parseFloat(e.latlng.lng).toFixed(4));
+        var latitude = parseFloat(e.latlng.lat).toFixed(4);
+        var longitude = parseFloat(e.latlng.lng).toFixed(4);
         if (oldpin) {
             mymap.removeLayer(oldpin);
         }
         oldpin = marker;
+        $("#ll").text(latitude+', '+longitude);
+        $("#lat").val(latitude);
+        $("#long").val(longitude);
     });
 
 
@@ -138,14 +146,8 @@ $(document).ready(function(){
 
    // JUST RESPONSE (Not needed)
    var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
-   var msg = "";
-   if (ratingValue > 1) {
-       msg = "Thanks! You rated this " + ratingValue + " stars.";
-   }
-   else {
-       msg = "We will improve ourselves. You rated this " + ratingValue + " stars.";
-   }
-   alert(msg);
+   var msg = ratingValue + " stars.";
+   $("#satisfaction").val(msg);
 
  });
 
