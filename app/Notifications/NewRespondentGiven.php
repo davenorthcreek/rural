@@ -44,9 +44,9 @@ class NewRespondentGiven extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('You have received a new survey response')
+                    ->line($this->respondent->name. ' has responded. Their ISP is '.$this->respondent->isp)
                     ->action('View Response:', url('/response/'.$this->respondent->id))
-                    ->line('Check it out');
+                    ->line('Their satisfaction? '.$this->respondent->satisfaction);
     }
 
     /**
