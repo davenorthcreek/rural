@@ -10,7 +10,7 @@
     <div id="app" v-cloak>
         <div class="register-box">
             <div class="register-logo">
-                <a href="{{ url('/home') }}"><b>21st </b>Rural Co-op</a>
+                <a href="{{ url('/home') }}"><b>Rural</b>Co-op</a>
             </div>
 
             @if (count($errors) > 0)

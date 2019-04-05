@@ -4,9 +4,9 @@
     <!-- Logo -->
     <a href="{{ url('/home') }}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>21</b>RC</span>
+        <span class="logo-mini"><b>R</b>C</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>21st Century </b>Rural Co-op</span>
+        <span class="logo-lg"><b>Rural</b>Co-op</span>
     </a>
 
     <!-- Header Navbar -->
@@ -77,7 +77,7 @@
                     </li>
                 @endif
 
-                
+
             </ul>
         </div>
     </nav>
