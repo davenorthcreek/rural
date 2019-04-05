@@ -31,7 +31,8 @@
                 accessToken: 'pk.eyJ1Ijoibm9ydGhjcmVla2RhdmUiLCJhIjoiY2p0dWxmcDN2MDB5YTN5bmVmcWxxcXFjdSJ9.aCpnpdVb8SxWsCUxsBr03g'
             }).addTo(mymap);
             var marker = new L.marker([{{$resp->lat}}, {{$resp->long}}], {draggable:false});
-        mymap.addLayer(marker);
+            mymap.addLayer(marker);
+
         </script>
     @endisset
 @endsection
