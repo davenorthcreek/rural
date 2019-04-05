@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use App\Respondent;
 
 class NewRespondentGiven extends Notification
 {
@@ -18,7 +19,7 @@ class NewRespondentGiven extends Notification
      *
      * @return void
      */
-    public function __construct(App\Respondent $respondent)
+    public function __construct(Respondent $respondent)
     {
         $this->respondent = $respondent;
     }
