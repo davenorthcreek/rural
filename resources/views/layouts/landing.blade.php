@@ -45,7 +45,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><b>adminlte-laravel</b></a>
+                <a class="navbar-brand" href="#"><b>Rural Co-op</b></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -59,7 +59,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                         <li><a href="{{ url('/login') }}">{{ trans('adminlte_lang::message.login') }}</a></li>
                         <li><a href="{{ url('/register') }}">{{ trans('adminlte_lang::message.register') }}</a></li>
                     @else
-                        <li><a href="/home">{{ Auth::user()->name }}</a></li>
+                        <li><a href="/about">{{ Auth::user()->name }}</a></li>
                     @endif
                 </ul>
             </div><!--/.nav-collapse -->

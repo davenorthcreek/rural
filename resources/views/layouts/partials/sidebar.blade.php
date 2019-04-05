@@ -33,8 +33,11 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">{{ trans('adminlte_lang::message.header') }}</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="survey"><i class='fa fa-question'></i> <span>The Survey</span></a></li>
-            <li><a href="about"><i class='fa fa-link'></i> <span>About the Co-op</span></a></li>
+            <li class="active"><a href="/survey"><i class='fa fa-question'></i> <span>The Survey</span></a></li>
+            <li><a href="/about"><i class='fa fa-link'></i> <span>About the Co-op</span></a></li>
+            @if (! Auth::guest())
+            <li><a href="/all"><i class='fa fa-users'></i> <span>All Survey Responses</span></a></li>
+            @endif
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

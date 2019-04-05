@@ -54,12 +54,12 @@ desired effect
 
 </div><!-- ./wrapper -->
 </div>
+<!-- More scripts here -->
 @section('scripts')
     @include('layouts.partials.scripts')
+    @yield('local-scripts')
 @show
 
-<!-- More scripts here -->
-@yield('local-scripts')
 
 </body>
 </html>

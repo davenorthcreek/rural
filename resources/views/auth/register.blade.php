@@ -29,8 +29,6 @@
 
                 <register-form></register-form>
 
-                @include('auth.partials.social_login')
-
                 <a href="{{ url('/login') }}" class="text-center">{{ trans('adminlte_lang::message.membership') }}</a>
             </div><!-- /.form-box -->
         </div><!-- /.register-box -->

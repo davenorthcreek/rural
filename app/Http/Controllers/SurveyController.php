@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Respondent;
+use App\Notifications\NewRespondentGiven;
 
 class SurveyController extends Controller
 {
@@ -18,7 +19,31 @@ class SurveyController extends Controller
             'long'  => $request->long
         ]);
 
-        $data['name'] = $respondent->name;
+        $this->notify('Dave Block', 'dave@northcreek.ca', $respondent);
+        $data['resp'] = $respondent;
         return view('about')->with($data);
+    }
+
+    public function viewResponse($id)
+    {
+        $respondent = Respondent::find($id);
+        $data['resp'] = $respondent;
+        return view('response')->with($data);
+    }
+
+    public function viewAllResponses()
+    {
+        $data['responses'] = Respondent::all();
+        return view('all')->with($data);
+    }
+
+
+    public function notify($name, $email, $respondent)
+    {
+        $user = new \App\User([
+            'name' => $name,
+            'email' => $email
+        ]);
+        $user->notify(new NewRespondentGiven($respondent));
     }
 }
