@@ -40,5 +40,6 @@
             $trans['adminlte_lang_message'] = trans('adminlte_lang::message');
             echo json_encode($trans);
         @endphp
+
     </script>
 </head>

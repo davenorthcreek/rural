@@ -144,9 +144,8 @@ $(document).ready(function(){
      $(stars[i]).addClass('selected');
    }
 
-   // JUST RESPONSE (Not needed)
    var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
-   var msg = ratingValue + " stars.";
+   var msg = ratingValue + " stars";
    $("#satisfaction").val(msg);
 
  });

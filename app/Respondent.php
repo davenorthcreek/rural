@@ -15,4 +15,11 @@ class Respondent extends Model
         'name', 'email', 'isp', 'satisfaction', 'lat', 'long'
     ];
 
+    protected $appends = array('score');
+
+    public function getScoreAttribute()
+    {
+        return substr($this->satisfaction, 0, 1);
+    }
+
 }

@@ -27,3 +27,23 @@
 .rating-stars ul > li.star.selected > i.fa {
   color:#FF912C;
 }
+
+.satisfaction-1 {
+    color: #FF0000;
+}
+
+.satisfaction-2 {
+    color: #FF5F00;
+}
+
+.satisfaction-3 {
+    color: #FFBF00;
+}
+
+.satisfaction-4 {
+    color: #a99852;
+}
+
+.satisfaction-5 {
+    color: #00FF00;
+}
