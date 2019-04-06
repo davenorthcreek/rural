@@ -34,6 +34,7 @@ class SurveyController extends Controller
     public function viewAllResponses()
     {
         $data['responses'] = Respondent::all();
+        $data['lastResponse'] = Respondent::orderBy('created_at', 'desc')->first();
         return view('all')->with($data);
     }
 
