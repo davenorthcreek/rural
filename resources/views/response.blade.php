@@ -17,6 +17,8 @@
                 <li>{{$resp->lat}}, {{$resp->long}}</li>
             </ul>
         @endisset
+        <div><a href="{{url("/all")}}">Back to All Responses</a></div>
+    </div>
 
 @endsection
 

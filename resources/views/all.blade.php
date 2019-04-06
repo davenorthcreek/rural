@@ -16,6 +16,8 @@
             </ul>
         @endisset
 
+    </div
+
 @endsection
 
 @section('local-scripts')

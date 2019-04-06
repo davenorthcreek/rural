@@ -16,14 +16,14 @@
             <li>Let residents know if they should switch to a different tower or ISP</li>
             <li>Lobby ISPs for new tower construction where it is needed</li>
         </ul>
+
+        @if(!isset($resp))
+            <h2><a href="{{url('survey')}}">Take the Survey Here!</a></h2>
+        @endif
+
+        <h3>Subscribe to <a href="http://newsletter.firstworldrural.ca">First World Rural (problems)</a>,
+            a newsletter about living out of town and working in cyberspace.</h3>
     </div>
-
-    @if(!isset($resp))
-        <h2><a href="{{url('survey')}}">Take the Survey Here!</a></h2>
-    @endif
-
-    <h3>Subscribe to <a href="http://newsletter.firstworldrural.ca">First World Rural (problems)</a>,
-        a newsletter about living out of town and working in cyberspace.</h3>
 
 @endsection
 
