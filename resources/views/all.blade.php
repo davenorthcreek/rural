@@ -11,7 +11,11 @@
 
             <ul>
                 @foreach($responses as $resp)
-                    <li class="satisfaction-{{$resp->score}}"><a class="satisfaction-{{$resp->score}}" href="{{url("/response/".$resp->id)}}">{{$resp->name}}</a></li>
+                    <li class="satisfaction-{{$resp->score}}">
+                        <a class="satisfaction-{{$resp->score}}" href="{{url("/response/".$resp->id)}}">
+                            {{$resp->name}}: {{$resp->isp}} ({{$resp->satisfaction}})
+                        </a>
+                    </li>
                 @endforeach
             </ul>
         @endisset
