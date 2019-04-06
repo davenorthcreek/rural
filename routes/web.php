@@ -15,14 +15,9 @@ Route::get('/', function () {
     return view('survey');
 });
 
-Route::get('/survey', function () {
-    return view('survey');
-});
-
+Route::get('/survey',  'SurveyController@survey');
 Route::post('/result', 'SurveyController@result');
-Route::get('/about', function() {
-    return view('about');
-});
+Route::get('/about',   'SurveyController@about');
 
 
 Route::group(['middleware' => 'auth'], function () {

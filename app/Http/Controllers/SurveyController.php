@@ -38,6 +38,17 @@ class SurveyController extends Controller
         return view('all')->with($data);
     }
 
+    public function survey()
+    {
+        $data['responses'] = Respondent::all();
+        return view('survey')->with($data);
+    }
+
+    public function about()
+    {
+        $data['responses'] = Respondent::all();
+        return view('about')->with($data);
+    }
 
     public function notify($name, $email, $respondent)
     {
