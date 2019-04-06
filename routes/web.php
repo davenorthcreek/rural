@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('survey');
-});
-
+Route::get('/',        'SurveyController@survey');
 Route::get('/survey',  'SurveyController@survey');
 Route::post('/result', 'SurveyController@result');
 Route::get('/about',   'SurveyController@about');
