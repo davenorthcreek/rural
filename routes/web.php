@@ -20,6 +20,7 @@ Route::get('/about',   'SurveyController@about');
 Route::group(['middleware' => 'auth'], function () {
     Route::get("/response/{id}", "SurveyController@viewResponse");
     Route::get("/all", "SurveyController@viewAllResponses");
+    Route::get("/home", "SurveyController@viewAllResponses");
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
 //    });
