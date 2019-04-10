@@ -21,6 +21,8 @@
             <h2><a href="{{url('survey')}}">Take the Survey Here!</a></h2>
         @endif
 
+        <h3><a href="http://forum.firstworldrural.ca">New! Join the Forum!</a></h3>
+
         <h3>Subscribe to <a href="http://newsletter.firstworldrural.ca">First World Rural (problems)</a>,
             a newsletter about living out of town and working in cyberspace.</h3>
     </div>
