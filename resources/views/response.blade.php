@@ -3,20 +3,33 @@
 @section('main-content')
     <div>
         <h1>Internet Access Survey Response</h1>
-        @isset($resp)
-            <h3>Response from {{$resp->name}}</h3>
-            <div>
-                <div id="mapid" style="height: 440px"></div>
-            </div>
+        @if (! Auth::guest())
+            @isset($resp)
+                <h3>Response from {{$resp->name}}</h3>
+                <div>
+                    <div id="mapid" style="height: 440px"></div>
+                </div>
 
+                <ul>
+                    <li>{{$resp->name}}</li>
+                    <li>{{$resp->email}}</li>
+                    <li>{{$resp->isp}}</li>
+                    <li class="satisfaction-{{$resp->score}}"><span class="satisfaction-{{$resp->score}}">{{$resp->satisfaction}}</li>
+                    <li>{{$resp->lat}}, {{$resp->long}}</li>
+                </ul>
+            @endisset
             <ul>
-                <li>{{$resp->name}}</li>
-                <li>{{$resp->email}}</li>
-                <li>{{$resp->isp}}</li>
-                <li class="satisfaction-{{$resp->score}}"><span class="satisfaction-{{$resp->score}}">{{$resp->satisfaction}}</li>
-                <li>{{$resp->lat}}, {{$resp->long}}</li>
+                @foreach($responses as $res)
+                    @if($resp->id != $res->id)
+                        <li class="satisfaction-{{$res->score}}">
+                            <a class="satisfaction-{{$res->score}}" href="{{url("/response/".$res->id)}}">
+                                {{$res->name}}: {{$res->isp}} ({{number_format($resp->distanceFrom($res), 0)}} m)
+                            </a>
+                        </li>
+                    @endif
+                @endforeach
             </ul>
-        @endisset
+        @endif
         <div><a href="{{url("/all")}}">Back to All Responses</a></div>
     </div>
 
@@ -115,7 +128,15 @@
             }).addTo(mymap);
             var marker = new L.marker([{{$resp->lat}}, {{$resp->long}}], {draggable:false, icon: icon{{$resp->score}}});
             mymap.addLayer(marker);
-
+            @foreach($responsesInRange as $inRange)
+                marker = new L.marker([{{$inRange->lat}}, {{$inRange->long}}],
+                    {
+                        draggable:false,
+                        icon: icon{{$inRange->score}}
+                    }
+                );
+                mymap.addLayer(marker);
+            @endforeach
         </script>
     @endisset
 @endsection

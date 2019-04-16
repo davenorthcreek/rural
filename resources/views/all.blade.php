@@ -9,11 +9,24 @@
                 <div id="mapid" style="height: 440px"></div>
             </div>
 
+            @if (! Auth::guest())
+            <p>Responses</p>
             <ul>
                 @foreach($responses as $resp)
                     <li class="satisfaction-{{$resp->score}}">
                         <a class="satisfaction-{{$resp->score}}" href="{{url("/response/".$resp->id)}}">
                             {{$resp->name}}: {{$resp->isp}} ({{$resp->satisfaction}})
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+            @endif
+            <p>ISPs</p>
+            <ul>
+                @foreach($isps as $another_isp)
+                    <li class="satisfaction-{{round($average[$another_isp])}}">
+                        <a class="satisfaction-{{round($average[$another_isp])}}" href="{{url("/byIsp/".$another_isp)}}">
+                            {{$another_isp}}: {{$average[$another_isp]}} stars from {{$count[$another_isp]}} responses
                         </a>
                     </li>
                 @endforeach
@@ -25,7 +38,6 @@
 @endsection
 
 @section('local-scripts')
-    @isset($resp)
         <script>
             const one =   '#FF0000'
             const two =   '#FF5F00'
@@ -127,5 +139,4 @@
                 mymap.addLayer(marker);
             @endforeach
         </script>
-    @endisset
 @endsection

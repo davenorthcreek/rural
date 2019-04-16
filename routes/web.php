@@ -15,11 +15,13 @@ Route::get('/',        'SurveyController@survey');
 Route::get('/survey',  'SurveyController@survey');
 Route::post('/result', 'SurveyController@result');
 Route::get('/about',   'SurveyController@about');
+Route::get("/byIsp", "SurveyController@viewByIsp");
+Route::get("/byIsp/{isp}", "SurveyController@viewByIsp");
+Route::get("/all", "SurveyController@viewAllResponses");
 
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get("/response/{id}", "SurveyController@viewResponse");
-    Route::get("/all", "SurveyController@viewAllResponses");
     Route::get("/home", "SurveyController@viewAllResponses");
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware

@@ -37,9 +37,14 @@
             <li><a href="/about"><i class='fa fa-link'></i> <span>About the Co-op</span></a></li>
             <li><a href="http://newsletter.firstworldrural.ca"><i class='fa fa-newspaper-o'></i> <span>Newsletter</span></a></li>
             <li><a href="https://forum.firstworldrural.ca"><i class='fa fa-comments-o'></i> <span>Forum</span></a></li>
-            @if (! Auth::guest())
             <li><a href="/all"><i class='fa fa-users'></i> <span>All Survey Responses</span></a></li>
-            @endif
+            <li class="treeview">
+                <a href="#"><i class='fa fa-cloud-download'></i> <span>By ISP</span></a>
+                <ul class="treeview-menu">
+                    @foreach($isps as $an_isp)
+                        <li><a href="{{url("/byIsp/".$an_isp)}}">{{$an_isp}}</a></li>
+                    @endforeach
+            </li>
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
