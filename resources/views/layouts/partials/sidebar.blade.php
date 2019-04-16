@@ -39,7 +39,12 @@
             <li><a href="https://forum.firstworldrural.ca"><i class='fa fa-comments-o'></i> <span>Forum</span></a></li>
             <li><a href="/all"><i class='fa fa-users'></i> <span>All Survey Responses</span></a></li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-cloud-download'></i> <span>By ISP</span></a>
+                <a href="#"><i class='fa fa-cloud-download'></i>
+                    <span>By ISP</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
                 <ul class="treeview-menu">
                     @foreach($isps as $an_isp)
                         <li><a href="{{url("/byIsp/".$an_isp)}}">{{$an_isp}}</a></li>

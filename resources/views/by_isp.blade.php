@@ -10,6 +10,7 @@
             </div>
         @endisset
         @if (! Auth::guest())
+        <p>Responses</p>
         <ul>
             @foreach($matching as $res)
                 <li class="satisfaction-{{$res->score}}">
@@ -20,6 +21,7 @@
             @endforeach
         </ul>
         @endif
+        <p>ISPs</p>
         <ul>
             @foreach($isps as $another_isp)
                 <li class="satisfaction-{{round($average[$another_isp])}}">
