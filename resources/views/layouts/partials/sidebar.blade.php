@@ -29,7 +29,7 @@
             <li><a href="https://forum.firstworldrural.ca"><i class='fa fa-comments-o'></i> <span>Forum</span></a></li>
             <li><a href="/all"><i class='fa fa-users'></i> <span>All Survey Responses</span></a></li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-cloud-download'></i>
+                <a href="#"><i class='fa fa-cloud'></i>
                     <span>By ISP</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
