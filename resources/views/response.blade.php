@@ -126,13 +126,28 @@
                 id: 'mapbox.streets',
                 accessToken: 'pk.eyJ1Ijoibm9ydGhjcmVla2RhdmUiLCJhIjoiY2p0dWxmcDN2MDB5YTN5bmVmcWxxcXFjdSJ9.aCpnpdVb8SxWsCUxsBr03g'
             }).addTo(mymap);
-            var marker = new L.marker([{{$resp->lat}}, {{$resp->long}}], {draggable:false, icon: icon{{$resp->score}}});
+            var marker = new L.marker([{{$resp->lat}}, {{$resp->long}}], {draggable:false, icon: icon{{$resp->score}}})
+            .on('mouseover', function(e) {
+                e.target.bindPopup("{{$resp->isp}}").openPopup();
+            })
+            .on('mouseout', function(e) {
+                e.target.closePopup()
+            });
             mymap.addLayer(marker);
             @foreach($responsesInRange as $inRange)
                 marker = new L.marker([{{$inRange->lat}}, {{$inRange->long}}],
                     {
                         draggable:false,
                         icon: icon{{$inRange->score}}
+                    })
+                    .on('mouseover', function(e) {
+                        e.target.bindPopup("{{$inRange->isp}}").openPopup();
+                    })
+                    .on('mouseout', function(e) {
+                        e.target.closePopup()
+                    })
+                    .on('click', function(e) {
+                        location = "/response/" + {{$inRange->id}};
                     }
                 );
                 mymap.addLayer(marker);

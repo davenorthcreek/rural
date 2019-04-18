@@ -132,7 +132,19 @@
                     draggable:false,
                     icon: icon{{$inRange->score}}
                 }
-            );
+            )
+            .on('mouseover', function(e) {
+                e.target.bindPopup("{{$inRange->isp}}").openPopup();
+            })
+            .on('mouseout', function(e) {
+                e.target.closePopup()
+            })
+            @if (! Auth::guest())
+                .on('click', function(e) {
+                    location = "/response/" + {{$inRange->id}};
+                })
+            @endif
+            ;
             mymap.addLayer(marker);
         @endforeach
     </script>

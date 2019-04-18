@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Log;
 
 class Respondent extends Model
 {
@@ -29,7 +30,9 @@ class Respondent extends Model
      */
     public function inRange(Respondent $other, $range=3200)
     {
-        return $this->distanceFrom($other) < $range;
+        $distance = $this->distanceFrom($other);
+        //Log::debug("Distance: ".$distance);
+        return $distance < $range;
     }
 
     public function distanceFrom(Respondent $other)

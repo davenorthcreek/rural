@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Respondent;
 use App\Notifications\NewRespondentGiven;
+use Log;
 
 class SurveyController extends Controller
 {
@@ -32,10 +33,13 @@ class SurveyController extends Controller
         $inrange = array();
         foreach ($responses as $check)
         {
-            if ($check != $respondent)
+            //Log::debug("Comparing ".$check->id." to ".$respondent->id);
+            if ($check->id != $respondent->id)
             {
+                //Log::debug("Not the same");
                 if ($respondent->inRange($check))
                 {
+                    //Log::debug("in range");
                     $inrange[] = $check;
                 }
             }
