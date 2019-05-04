@@ -22,6 +22,7 @@ class SurveyController extends Controller
 
         $this->notify('Dave Block', 'dave@northcreek.ca', $respondent);
         $data['resp'] = $respondent;
+        $data = $this->get_isp_data($data);
         return view('about')->with($data);
     }
 
